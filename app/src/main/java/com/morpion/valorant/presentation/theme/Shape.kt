@@ -1,4 +1,4 @@
-package com.morpion.valorant.ui.theme
+package com.morpion.valorant.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
