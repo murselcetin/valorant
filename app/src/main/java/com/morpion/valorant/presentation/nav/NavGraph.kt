@@ -19,7 +19,7 @@ fun NavGraph(navController: NavHostController, paddingValues: PaddingValues) {
     NavHost(
         navController = navController,
         startDestination = Screen.Splash.route,
-        //modifier = Modifier.padding(paddingValues = paddingValues)
+        modifier = Modifier.padding(paddingValues = paddingValues)
     ) {
 
        composable(route = Screen.Splash.route) {
