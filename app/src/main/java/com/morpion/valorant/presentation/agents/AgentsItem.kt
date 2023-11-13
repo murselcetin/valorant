@@ -1,4 +1,4 @@
-package com.morpion.valorant.presentation
+package com.morpion.valorant.presentation.agents
 
 import android.content.res.Resources
 import androidx.compose.foundation.background

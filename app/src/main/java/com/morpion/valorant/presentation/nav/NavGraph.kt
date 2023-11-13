@@ -4,12 +4,11 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.morpion.valorant.presentation.AgentsScreen
-import com.morpion.valorant.presentation.MapsScreen
+import com.morpion.valorant.presentation.agents.AgentsScreen
+import com.morpion.valorant.presentation.maps.MapsScreen
 import com.morpion.valorant.presentation.SplashScreen
 import com.morpion.valorant.presentation.WeaponsScreen
 

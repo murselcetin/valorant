@@ -10,4 +10,6 @@ class RepositoryImpl @Inject constructor(private val api: ApiService) : Reposito
 
     override suspend fun getAgent(getAgentsRequest: GetAgentsRequest) = safeApiCall { api.getAgents(getAgentsRequest.language) }
 
+    override suspend fun getMaps() = safeApiCall { api.getMaps() }
+
 }

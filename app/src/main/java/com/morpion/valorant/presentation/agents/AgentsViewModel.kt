@@ -1,9 +1,7 @@
-package com.morpion.valorant.presentation
+package com.morpion.valorant.presentation.agents
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.morpion.valorant.data.remote.request.GetAgentsRequest
 import com.morpion.valorant.domain.model.AgentModel
