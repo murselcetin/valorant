@@ -1,4 +1,4 @@
-package com.morpion.valorant.presentation
+package com.morpion.valorant.presentation.agents
 
 import com.morpion.valorant.domain.model.AgentModel
 

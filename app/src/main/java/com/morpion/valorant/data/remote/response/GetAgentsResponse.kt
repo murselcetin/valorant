@@ -3,10 +3,6 @@ package com.morpion.valorant.data.remote.response
 import com.google.gson.annotations.SerializedName
 import com.morpion.valorant.domain.model.AgentModel
 
-data class GetAgentsListResponse(
-    val data: List<GetAgentsResponse>?
-)
-
 data class GetAgentsResponse(
     @SerializedName("uuid") var uuid: String? = null,
     @SerializedName("displayName") var displayName: String? = null,

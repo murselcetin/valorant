@@ -37,3 +37,17 @@ val agentText = TextStyle(
     color = White
 )
 
+val mapText = TextStyle(
+    fontFamily = FontFamily(Font(R.font.agentfont)),
+    fontWeight = FontWeight.ExtraBold,
+    fontSize = 20.sp,
+    color = Black
+)
+
+val mapTextSmall = TextStyle(
+    fontFamily = FontFamily(Font(R.font.agentfont)),
+    fontWeight = FontWeight.ExtraBold,
+    fontSize = 10.sp,
+    color = LightRed
+)
+
