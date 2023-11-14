@@ -15,19 +15,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.morpion.valorant.presentation.theme.LightBlack
-import com.morpion.valorant.presentation.theme.LightRed
-import com.morpion.valorant.presentation.theme.White
+import com.morpion.valorant.data.remote.response.RoleData
+import com.morpion.valorant.presentation.theme.*
+import com.skydoves.landscapist.CircularReveal
+import com.skydoves.landscapist.glide.GlideImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FilterChips(
-    roleList: List<String>,
-    selectedRole: (String) -> Unit = {}
+    roleList: List<RoleData>,
+    selectedItem: (String) -> Unit = {}
 ) {
     val configuration = LocalConfiguration.current
     val filterHeight = (configuration.screenHeightDp / 12f).dp
@@ -37,37 +39,41 @@ fun FilterChips(
     LazyHorizontalGrid(
         modifier = Modifier
             .height(filterHeight)
-            .padding(top = 10.dp, start = 12.dp),
+            .padding(top = 10.dp, start = 20.dp),
         contentPadding = PaddingValues(2.dp),
         rows = GridCells.Fixed(1)
     ) {
         items(roleList) { itRole ->
             FilterChip(
-                modifier = Modifier.padding(all = 6.dp),
-                selected = (itRole == selectedItem.value),
+                modifier = Modifier.padding(end = 4.dp),
+                selected = (itRole.displayName == selectedItem.value),
                 onClick = {
-                    selectedItem.value = itRole
-                    selectedRole(itRole)
+                    selectedItem.value = itRole.displayName ?: ""
+                    selectedItem(itRole.displayName ?: "")
                 },
                 label = {
                     Text(
-                        text = itRole,
-                        fontWeight = if (itRole == selectedItem.value) FontWeight.Medium else FontWeight.Normal
+                        text = itRole.displayName ?: "".uppercase(),
+                        style = normalWhite,
+                        fontWeight = if (itRole.displayName == selectedItem.value) FontWeight.ExtraBold else FontWeight.Normal
                     )
                 },
-                leadingIcon = if (itRole == selectedItem.value) {
+                leadingIcon = if (itRole.displayName == selectedItem.value) {
                     {
-                        Icon(
-                            imageVector = Icons.Default.Done,
-                            contentDescription = null,
-                            modifier = Modifier.size(
-                                FilterChipDefaults.IconSize
-                            ),
-                            tint = LightRed
+                        GlideImage(
+                            modifier = Modifier.size(AssistChipDefaults.IconSize+5.dp),
+                            imageModel = itRole.displayIcon,
+                            contentScale = ContentScale.Fit,
                         )
                     }
                 } else {
-                    null
+                    {
+                        GlideImage(
+                            modifier = Modifier.size(AssistChipDefaults.IconSize),
+                            imageModel = itRole.displayIcon,
+                            contentScale = ContentScale.Fit,
+                        )
+                    }
                 },
                 colors = FilterChipDefaults.filterChipColors(
                     labelColor = White,

@@ -15,5 +15,7 @@
     <string name="text_body">Body</string>
     <string name="text_leg">Leg</string>
 
-    <string name="search_agent">Search Agent</string>
+    <string name="exit_app">Uygumaladan çıkmak istediğinize emin misiniz?</string>
+    <string name="search">Ara</string>
+    <string name="close">Kapat</string>
 </resources>

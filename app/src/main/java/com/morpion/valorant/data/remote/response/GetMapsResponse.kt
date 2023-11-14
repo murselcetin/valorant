@@ -1,7 +1,6 @@
 package com.morpion.valorant.data.remote.response
 
 import com.google.gson.annotations.SerializedName
-import com.morpion.valorant.domain.model.AgentModel
 import com.morpion.valorant.domain.model.MapModel
 
 data class GetMapsResponse(

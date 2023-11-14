@@ -1,7 +1,6 @@
 package com.morpion.valorant.domain.usecase
 
-import android.util.Log
-import com.morpion.valorant.data.remote.request.GetAgentsRequest
+import com.morpion.valorant.data.remote.request.LanguageRequest
 import com.morpion.valorant.data.remote.response.toAgentModelList
 import com.morpion.valorant.domain.model.AgentModel
 import com.morpion.valorant.domain.repository.Repository
@@ -12,9 +11,9 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetAgentsUseCase @Inject constructor(private val repository: Repository) :
-    UseCaseWithFlow<GetAgentsRequest,RestResult<List<AgentModel>>> {
+    UseCaseWithFlow<LanguageRequest,RestResult<List<AgentModel>>> {
 
-    override suspend fun invoke(input: GetAgentsRequest): Flow<RestResult<List<AgentModel>>> =
+    override suspend fun invoke(input: LanguageRequest): Flow<RestResult<List<AgentModel>>> =
         flow {
             emit(
                 repository.getAgent(input).map {

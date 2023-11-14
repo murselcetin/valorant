@@ -30,24 +30,31 @@ val Typography = Typography(
     */
 )
 
-val agentText = TextStyle(
+val titleWhite = TextStyle(
     fontFamily = FontFamily(Font(R.font.agentfont)),
     fontWeight = FontWeight.ExtraBold,
     fontSize = 20.sp,
     color = White
 )
 
-val mapText = TextStyle(
+val titleBlack = TextStyle(
     fontFamily = FontFamily(Font(R.font.agentfont)),
     fontWeight = FontWeight.ExtraBold,
     fontSize = 20.sp,
     color = Black
 )
 
-val mapTextSmall = TextStyle(
+val smallRed = TextStyle(
     fontFamily = FontFamily(Font(R.font.agentfont)),
     fontWeight = FontWeight.ExtraBold,
     fontSize = 10.sp,
     color = LightRed
+)
+
+val normalWhite = TextStyle(
+    fontFamily = FontFamily(Font(R.font.agentfont)),
+    fontWeight = FontWeight.ExtraBold,
+    fontSize = 15.sp,
+    color = White
 )
 
