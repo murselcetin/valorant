@@ -1,6 +1,7 @@
 package com.morpion.valorant.presentation.maps
 
 import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -23,19 +24,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.*
 import com.morpion.valorant.R
+import com.morpion.valorant.common.components.ExitAlertDialog
+import com.morpion.valorant.presentation.MainActivity
 import com.morpion.valorant.presentation.theme.LightBlack
 import com.morpion.valorant.presentation.theme.LightRed
 import com.morpion.valorant.presentation.theme.White
+import kotlin.system.exitProcess
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MapsScreen(
     viewModel: MapsViewModel = hiltViewModel(),
 ) {
+    val openAlertDialog = remember { mutableStateOf(false) }
+    val activity: MainActivity = MainActivity()
+
     //map picker state
     val pickerState = rememberPagerState(Int.MAX_VALUE / 2)
 
@@ -142,6 +150,25 @@ fun MapsScreen(
                 )
             }
 
+        }
+    }
+
+    BackHandler {
+        openAlertDialog.value = true
+    }
+
+    when {
+        openAlertDialog.value -> {
+            ExitAlertDialog(
+                onDismissRequest = { openAlertDialog.value = false },
+                onConfirmation = {
+                    openAlertDialog.value = false
+                    activity.finish()
+                    exitProcess(0)
+                },
+                dialogTitle = stringResource(R.string.app_name),
+                dialogText = stringResource(R.string.exit_app),
+            )
         }
     }
 }

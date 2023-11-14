@@ -20,7 +20,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.morpion.valorant.domain.model.MapModel
 import com.morpion.valorant.presentation.theme.White
-import com.morpion.valorant.presentation.theme.mapText
+import com.morpion.valorant.presentation.theme.titleBlack
+import com.morpion.valorant.presentation.theme.titleWhite
 import com.skydoves.landscapist.glide.GlideImage
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -103,7 +104,7 @@ fun MapPager(
                             scaleX = textSize
                             scaleY = textSize
                         },
-                    style = mapText,
+                    style = titleBlack,
                     textAlign = TextAlign.Center
                 )
                 Text(
@@ -116,7 +117,7 @@ fun MapPager(
                             scaleX = textSize
                             scaleY = textSize
                         },
-                    style = mapText.copy(color = White),
+                    style = titleBlack.copy(color = White),
                     textAlign = TextAlign.Center
                 )
                 Box(

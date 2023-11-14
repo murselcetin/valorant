@@ -2,6 +2,7 @@ package com.morpion.valorant.data.remote
 
 import com.morpion.valorant.data.remote.response.GetAgentsResponse
 import com.morpion.valorant.data.remote.response.GetMapsResponse
+import com.morpion.valorant.data.remote.response.GetWeaponsResponse
 import com.morpion.valorant.util.BaseResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -14,5 +15,8 @@ interface ApiService {
 
     @GET("v1/maps")
     suspend fun getMaps(): Response<BaseResponse<List<GetMapsResponse>>>
+
+    @GET("v1/weapons/?")
+    suspend fun getWeapons(@Query("language") language: String?): Response<BaseResponse<List<GetWeaponsResponse>>>
 
 }

@@ -10,7 +10,7 @@ import androidx.navigation.compose.composable
 import com.morpion.valorant.presentation.agents.AgentsScreen
 import com.morpion.valorant.presentation.maps.MapsScreen
 import com.morpion.valorant.presentation.SplashScreen
-import com.morpion.valorant.presentation.WeaponsScreen
+import com.morpion.valorant.presentation.weapons.WeaponsScreen
 
 @Composable
 fun NavGraph(navController: NavHostController, paddingValues: PaddingValues) {

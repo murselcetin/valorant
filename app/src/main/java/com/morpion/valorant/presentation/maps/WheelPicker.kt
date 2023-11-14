@@ -29,8 +29,7 @@ import androidx.compose.ui.unit.dp
 import com.morpion.valorant.domain.model.MapModel
 import com.morpion.valorant.presentation.theme.Black
 import com.morpion.valorant.presentation.theme.LightRed
-import com.morpion.valorant.presentation.theme.agentText
-import com.morpion.valorant.presentation.theme.mapTextSmall
+import com.morpion.valorant.presentation.theme.smallRed
 import com.skydoves.landscapist.glide.GlideImage
 import kotlinx.coroutines.launch
 
@@ -104,7 +103,7 @@ fun WheelPicker(
 
                 Text(
                     text = items[index].displayName?:"",
-                    style = mapTextSmall,
+                    style = smallRed,
                     modifier = Modifier
                         .align(Alignment.Center)
                         .fillMaxWidth(),

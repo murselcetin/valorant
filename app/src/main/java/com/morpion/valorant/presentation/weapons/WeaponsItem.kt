@@ -1,4 +1,4 @@
-package com.morpion.valorant.presentation.agents
+package com.morpion.valorant.presentation.weapons
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -17,16 +17,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.morpion.valorant.domain.model.AgentModel
+import com.morpion.valorant.domain.model.WeaponModel
 import com.morpion.valorant.presentation.theme.*
 import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun AgentsItem(agent: AgentModel) {
+fun WeaponsItem(weapon: WeaponModel) {
     val configuration = LocalConfiguration.current
-    val agentImageHeight = (configuration.screenHeightDp / 4f).dp
-    val roleImageHeight = ((configuration.screenHeightDp / 4f) / 6f).dp
+    val weaponImageHeight = (configuration.screenHeightDp / 4f).dp
 
     Card(
         modifier = Modifier.padding(12.dp),
@@ -45,21 +44,14 @@ fun AgentsItem(agent: AgentModel) {
                 )
         ) {
             GlideImage(
-                imageModel = agent.displayIcon,
-                contentScale = ContentScale.Crop,
+                imageModel = weapon.displayIcon,
+                contentScale = ContentScale.Fit,
                 circularReveal = CircularReveal(),
-                modifier = Modifier.size(agentImageHeight)
+                modifier = Modifier.size(weaponImageHeight)
             )
-
-            GlideImage(
-                imageModel = agent.role?.displayIcon,
-                contentScale = ContentScale.Crop,
-                circularReveal = CircularReveal(),
-                modifier = Modifier.size(roleImageHeight).align(Alignment.TopEnd).padding(end = 10.dp, top = 10.dp)
-            )
-
+            
             Text(
-                text = agent.displayName.uppercase(),
+                text = weapon.displayName?:"".uppercase(),
                 style = titleWhite,
                 modifier = Modifier
                     .background(

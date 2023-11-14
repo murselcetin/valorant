@@ -1,4 +1,4 @@
-package com.morpion.valorant.presentation.agents
+package com.morpion.valorant.presentation.weapons
 
 import android.util.Log
 import androidx.activity.compose.BackHandler
@@ -18,18 +18,20 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.morpion.valorant.R
 import com.morpion.valorant.common.components.ExitAlertDialog
 import com.morpion.valorant.common.components.FilterChips
+import com.morpion.valorant.common.components.SearchView
 import com.morpion.valorant.presentation.MainActivity
 import com.morpion.valorant.presentation.theme.White
 import kotlin.system.exitProcess
 
 @Composable
-fun AgentsScreen(
-    viewModel: AgentsViewModel = hiltViewModel(),
+fun WeaponsScreen(
+    viewModel: WeaponsViewModel = hiltViewModel(),
 ) {
     val openAlertDialog = remember { mutableStateOf(false) }
     val activity: MainActivity = MainActivity()
 
     val state = viewModel.state.value
+    val searchWeapon = viewModel.searchWeapon.value
 
     Box {
         Column(
@@ -38,22 +40,23 @@ fun AgentsScreen(
                 .padding(top = 12.dp)
         ) {
 
-            if (viewModel.allRole.isNotEmpty()){
-                FilterChips(
-                    roleList = viewModel.allRole,
-                    selectedItem = { itSelectedItem ->
-                        viewModel.filterRole(itSelectedItem)
-                    }
-                )
-            }
+            SearchView(
+                searchText = searchWeapon,
+                onSearchTextChanged = {
+                    viewModel.searchWeapon(it)
+                },
+                onClearClick = {
+                    viewModel.clearSearch()
+                }
+            )
 
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
                 contentPadding = PaddingValues(12.dp)
             ) {
-                items(state.agents) { agentItem ->
-                    AgentsItem(
-                        agent = agentItem
+                items(state.weapons) { weaponItem ->
+                    WeaponsItem(
+                        weapon = weaponItem
                     )
                 }
             }
@@ -67,7 +70,7 @@ fun AgentsScreen(
         }
 
         if (state.error.isNotBlank()) {
-            Log.e("TAG", "AgentsScreen: ${state.error} ",)
+            Log.e("TAG", "WeaponsScreen: ${state.error} ",)
         }
 
         BackHandler {
@@ -90,4 +93,3 @@ fun AgentsScreen(
         }
     }
 }
-

@@ -7,3 +7,8 @@ data class CalloutsData(
     @SerializedName("superRegionName") var superRegionName: String?,
     @SerializedName("location") var location: LocationsData?
 )
+
+data class LocationsData(
+    @SerializedName("x") var x: Double?,
+    @SerializedName("y") var y: Double?
+)
