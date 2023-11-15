@@ -5,9 +5,12 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,13 +18,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.morpion.valorant.data.remote.response.AbilitiesData
-import com.morpion.valorant.presentation.theme.White
-import com.morpion.valorant.presentation.theme.normalWhite
-import com.morpion.valorant.presentation.theme.smallRed
+import com.morpion.valorant.presentation.theme.*
 import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
@@ -35,34 +37,29 @@ fun AbilityItem(
     val configuration = LocalConfiguration.current
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxWidth().padding(start = 10.dp,end = 10.dp).clickable(
-            interactionSource = remember { MutableInteractionSource() },
-            indication = null,
-        ) {
-            onAbilityClick(ability)
-        }
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 10.dp, end = 10.dp)
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+            ) {
+                onAbilityClick(ability)
+            }
     ) {
-        GlideImage(
-            imageModel = ability.displayIcon,
-            contentDescription = "Ability Item Icon",
-            modifier = Modifier
-                .size((configuration.screenWidthDp / 8f).dp),
-            circularReveal = CircularReveal(),
-        )
-
-        Spacer(modifier = Modifier.size(8.dp))
-
-        if (isCurrentlySelected){
-            Text(
-                text = ability.displayName ?: "",
-                style = smallRed
-            )
-        } else {
-            Text(
-                text = ability.displayName ?: "",
-                style = smallRed.copy(color = White)
-            )
+        Card(border = if (isCurrentlySelected) BorderStroke(1.dp, LightRed) else BorderStroke(0.dp, White),
+            backgroundColor = LightBlack,
+            shape = RoundedCornerShape(24.dp),
+        ) {
+            Column(modifier = Modifier.padding(8.dp)) {
+                GlideImage(
+                    imageModel = ability.displayIcon,
+                    contentScale = ContentScale.Fit,
+                    contentDescription = "Ability Item Icon",
+                    modifier = Modifier.size((configuration.screenWidthDp / 7f).dp),
+                    circularReveal = CircularReveal(),
+                )
+            }
         }
-
     }
 }

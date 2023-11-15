@@ -103,7 +103,8 @@ fun AgentDetailContent(
 
             AbilitiesPager(it.abilities ?: emptyList())
 
-            Spacer(modifier = Modifier.size(20.dp))
+            Spacer(modifier = Modifier.size((configuration.screenHeightDp / 10f).dp))
+
         }
     }
 }

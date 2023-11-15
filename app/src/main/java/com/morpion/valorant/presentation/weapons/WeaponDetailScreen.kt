@@ -38,7 +38,7 @@ fun WeaponDetailScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 BottomSheetDefaults.DragHandle(color = LightRed)
-                Text(text = weapon.displayName ?: "", style = titleWhite)
+                Text(text = weapon.displayName ?: "".uppercase(), style = titleWhite)
                 Spacer(modifier = Modifier.height(10.dp))
                 Divider(color = LightRed, thickness = 1.dp)
             }

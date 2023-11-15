@@ -35,7 +35,7 @@ fun AgentDetailScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 BottomSheetDefaults.DragHandle(color = LightRed)
-                Text(text = agent.displayName ?: "", style = titleWhite)
+                Text(text = agent.displayName ?: "".uppercase(), style = titleWhite)
                 Spacer(modifier = Modifier.height(10.dp))
                 Divider(color = LightRed, thickness = 1.dp)
             }
