@@ -40,7 +40,7 @@ fun AbilitiesPager(abilities: List<AbilitiesData>) {
 
             LazyRow(modifier = Modifier.padding(5.dp)) {
                 items(items = abilities, itemContent = { ability ->
-                    ItemAbility(
+                    AbilityItem(
                         ability = ability,
                         isCurrentlySelected = currentSelectedAbility.value == ability,
                         onAbilityClick = {

@@ -1,4 +1,4 @@
-package com.morpion.valorant.presentation.agents
+package com.morpion.valorant.presentation.weapons
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -8,25 +8,28 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
-import com.morpion.valorant.domain.model.AgentModel
-import com.morpion.valorant.presentation.components.AgentDetailContent
-import com.morpion.valorant.presentation.theme.*
+import com.morpion.valorant.domain.model.WeaponModel
+import com.morpion.valorant.presentation.components.WeaponDetailContent
+import com.morpion.valorant.presentation.theme.Black
+import com.morpion.valorant.presentation.theme.LightRed
+import com.morpion.valorant.presentation.theme.titleWhite
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AgentDetailScreen(
+fun WeaponDetailScreen(
     onDismissRequest: () -> Unit,
-    agent: AgentModel
+    weapon: WeaponModel
 ) {
     val configuration = LocalConfiguration.current
 
     val bottomSheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = true
     )
+
     ModalBottomSheet(
         modifier = Modifier.padding(top = (configuration.screenHeightDp / 24f).dp),
         sheetState = bottomSheetState,
-        onDismissRequest = { onDismissRequest() },
+        onDismissRequest = { onDismissRequest()},
         dragHandle = {
             Column(
                 modifier = Modifier
@@ -35,13 +38,12 @@ fun AgentDetailScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 BottomSheetDefaults.DragHandle(color = LightRed)
-                Text(text = agent.displayName ?: "", style = titleWhite)
+                Text(text = weapon.displayName ?: "", style = titleWhite)
                 Spacer(modifier = Modifier.height(10.dp))
                 Divider(color = LightRed, thickness = 1.dp)
             }
         }
     ) {
-        AgentDetailContent(agent = agent)
+        WeaponDetailContent(weapon = weapon)
     }
 }
-

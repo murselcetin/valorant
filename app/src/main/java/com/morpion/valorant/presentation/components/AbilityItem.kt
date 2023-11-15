@@ -26,7 +26,7 @@ import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun ItemAbility(
+fun AbilityItem(
     modifier: Modifier = Modifier,
     isCurrentlySelected: Boolean = false,
     ability: AbilitiesData,

@@ -1,6 +1,7 @@
-package com.morpion.valorant.presentation.weapons
+package com.morpion.valorant.presentation.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,18 +18,21 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.morpion.valorant.domain.model.AgentModel
 import com.morpion.valorant.domain.model.WeaponModel
 import com.morpion.valorant.presentation.theme.*
 import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun WeaponsItem(weapon: WeaponModel) {
+fun WeaponsItem(weapon: WeaponModel, onItemClick: (WeaponModel) -> Unit) {
     val configuration = LocalConfiguration.current
     val weaponImageHeight = (configuration.screenHeightDp / 4f).dp
 
     Card(
-        modifier = Modifier.padding(12.dp),
+        modifier = Modifier
+            .padding(12.dp)
+            .clickable { onItemClick(weapon) },
         elevation = 4.dp,
         shape = RoundedCornerShape(24.dp)
     ) {
@@ -49,9 +53,9 @@ fun WeaponsItem(weapon: WeaponModel) {
                 circularReveal = CircularReveal(),
                 modifier = Modifier.size(weaponImageHeight)
             )
-            
+
             Text(
-                text = weapon.displayName?:"".uppercase(),
+                text = weapon.displayName ?: "".uppercase(),
                 style = titleWhite,
                 modifier = Modifier
                     .background(
