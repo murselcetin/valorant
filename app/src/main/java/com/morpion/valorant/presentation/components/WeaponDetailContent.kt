@@ -113,7 +113,7 @@ fun WeaponDetailContent(
 
             SkinsPager(newSkinList)
 
-            Spacer(modifier = Modifier.size(20.dp))
+            Spacer(modifier = Modifier.size((configuration.screenHeightDp / 10f).dp))
         }
     }
 }
