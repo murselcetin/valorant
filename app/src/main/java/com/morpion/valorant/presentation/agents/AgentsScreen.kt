@@ -16,9 +16,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.morpion.valorant.R
-import com.morpion.valorant.common.components.ExitAlertDialog
-import com.morpion.valorant.common.components.FilterChips
+import com.morpion.valorant.presentation.components.ExitAlertDialog
+import com.morpion.valorant.presentation.components.FilterChips
+import com.morpion.valorant.domain.model.AgentModel
 import com.morpion.valorant.presentation.MainActivity
+import com.morpion.valorant.presentation.components.AgentsItem
 import com.morpion.valorant.presentation.theme.White
 import kotlin.system.exitProcess
 
@@ -27,6 +29,8 @@ fun AgentsScreen(
     viewModel: AgentsViewModel = hiltViewModel(),
 ) {
     val openAlertDialog = remember { mutableStateOf(false) }
+    val openAgentDetailBottomSheet = remember { mutableStateOf(false) }
+    val selectedAgent = remember { mutableStateOf(AgentModel()) }
     val activity: MainActivity = MainActivity()
 
     val state = viewModel.state.value
@@ -53,7 +57,11 @@ fun AgentsScreen(
             ) {
                 items(state.agents) { agentItem ->
                     AgentsItem(
-                        agent = agentItem
+                        agent = agentItem,
+                        onItemClick = {
+                            selectedAgent.value = it
+                            openAgentDetailBottomSheet.value = true
+                        }
                     )
                 }
             }
@@ -87,6 +95,9 @@ fun AgentsScreen(
                     dialogText = stringResource(R.string.exit_app),
                 )
             }
+        }
+        if (openAgentDetailBottomSheet.value) {
+            AgentDetailScreen(onDismissRequest = { openAgentDetailBottomSheet.value = false }, agent = selectedAgent.value)
         }
     }
 }

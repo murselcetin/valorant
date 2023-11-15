@@ -1,6 +1,7 @@
-package com.morpion.valorant.presentation.agents
+package com.morpion.valorant.presentation.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -23,13 +24,15 @@ import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
-fun AgentsItem(agent: AgentModel) {
+fun AgentsItem(agent: AgentModel, onItemClick: (AgentModel) -> Unit) {
     val configuration = LocalConfiguration.current
     val agentImageHeight = (configuration.screenHeightDp / 4f).dp
     val roleImageHeight = ((configuration.screenHeightDp / 4f) / 6f).dp
 
     Card(
-        modifier = Modifier.padding(12.dp),
+        modifier = Modifier
+            .padding(12.dp)
+            .clickable { onItemClick(agent) },
         elevation = 4.dp,
         shape = RoundedCornerShape(24.dp)
     ) {
@@ -55,11 +58,14 @@ fun AgentsItem(agent: AgentModel) {
                 imageModel = agent.role?.displayIcon,
                 contentScale = ContentScale.Crop,
                 circularReveal = CircularReveal(),
-                modifier = Modifier.size(roleImageHeight).align(Alignment.TopEnd).padding(end = 10.dp, top = 10.dp)
+                modifier = Modifier
+                    .size(roleImageHeight)
+                    .align(Alignment.TopEnd)
+                    .padding(end = 10.dp, top = 10.dp)
             )
 
             Text(
-                text = agent.displayName.uppercase(),
+                text = agent.displayName?:"".uppercase(),
                 style = titleWhite,
                 modifier = Modifier
                     .background(
