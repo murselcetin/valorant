@@ -6,9 +6,9 @@
     <string name="damage_range">Hasar Aralığı</string>
     <string name="skins">Kaplamalar</string>
 
-    <string name="text_head">Head</string>
-    <string name="text_body">Body</string>
-    <string name="text_leg">Leg</string>
+    <string name="text_head">Kafa</string>
+    <string name="text_body">Vücüt</string>
+    <string name="text_leg">Bacak</string>
 
     <string name="exit_app">Uygumaladan çıkmak istediğinize emin misiniz?</string>
     <string name="search">Ara</string>
