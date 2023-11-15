@@ -16,9 +16,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.morpion.valorant.R
-import com.morpion.valorant.common.components.ExitAlertDialog
-import com.morpion.valorant.common.components.FilterChips
-import com.morpion.valorant.common.components.SearchView
+import com.morpion.valorant.presentation.components.ExitAlertDialog
+import com.morpion.valorant.presentation.components.SearchView
 import com.morpion.valorant.presentation.MainActivity
 import com.morpion.valorant.presentation.theme.White
 import kotlin.system.exitProcess

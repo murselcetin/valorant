@@ -29,11 +29,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.*
 import com.morpion.valorant.R
-import com.morpion.valorant.common.components.ExitAlertDialog
+import com.morpion.valorant.presentation.components.ExitAlertDialog
 import com.morpion.valorant.presentation.MainActivity
 import com.morpion.valorant.presentation.theme.LightBlack
 import com.morpion.valorant.presentation.theme.LightRed
-import com.morpion.valorant.presentation.theme.White
 import kotlin.system.exitProcess
 
 @OptIn(ExperimentalFoundationApi::class)

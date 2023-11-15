@@ -78,4 +78,6 @@ dependencies {
 
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     implementation ("com.airbnb.android:lottie-compose:6.0.1")
+
+    implementation 'com.google.accompanist:accompanist-pager:0.26.1-alpha'
 }

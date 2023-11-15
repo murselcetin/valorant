@@ -1,4 +1,4 @@
-package com.morpion.valorant.common.components
+package com.morpion.valorant.presentation.components
 
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Text
