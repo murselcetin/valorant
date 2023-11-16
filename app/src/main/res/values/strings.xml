@@ -18,5 +18,8 @@
     <string name="agent">Agents</string>
     <string name="weapon">Weapons</string>
 
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
 
 </resources>
