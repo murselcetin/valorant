@@ -58,3 +58,10 @@ val normalWhite = TextStyle(
     color = White
 )
 
+val normalRed = TextStyle(
+    fontFamily = FontFamily(Font(R.font.agentfont)),
+    fontWeight = FontWeight.ExtraBold,
+    fontSize = 15.sp,
+    color = LightRed
+)
+

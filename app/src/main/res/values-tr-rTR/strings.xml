@@ -14,4 +14,6 @@
     <string name="map">Haritalar</string>
     <string name="agent">Ajanlar</string>
     <string name="weapon">Silahlar</string>
+    <string name="yes">Evet</string>
+    <string name="no">Hayır</string>
 </resources>

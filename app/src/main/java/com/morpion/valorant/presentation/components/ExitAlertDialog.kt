@@ -1,9 +1,15 @@
 package com.morpion.valorant.presentation.components
 
+import androidx.compose.foundation.background
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import com.morpion.valorant.R
+import com.morpion.valorant.presentation.theme.*
 
 @Composable
 fun ExitAlertDialog(
@@ -13,11 +19,12 @@ fun ExitAlertDialog(
     dialogText: String,
 ) {
     AlertDialog(
+        backgroundColor = LightBlack,
         title = {
-            Text(text = dialogTitle)
+            Text(text = dialogTitle, style = titleWhite.copy(color = LightRed))
         },
         text = {
-            Text(text = dialogText)
+            Text(text = dialogText, style = normalWhite)
         },
         onDismissRequest = {
             onDismissRequest()
@@ -28,7 +35,7 @@ fun ExitAlertDialog(
                     onConfirmation()
                 }
             ) {
-                Text("Evet")
+                Text(text = stringResource(id = R.string.yes), style = normalWhite)
             }
         },
         dismissButton = {
@@ -37,7 +44,7 @@ fun ExitAlertDialog(
                     onDismissRequest()
                 }
             ) {
-                Text("Hayır")
+                Text(text = stringResource(id = R.string.no), style = normalRed)
             }
         }
     )
