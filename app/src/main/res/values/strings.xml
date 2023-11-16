@@ -1,16 +1,22 @@
 <resources>
     <string name="app_name">Valorant Guide</string>
 
-    <string name="description">Açıklama</string>
-    <string name="abilities">Yetenekler</string>
-    <string name="damage_range">Hasar Aralığı</string>
-    <string name="skins">Kaplamalar</string>
+    <string name="description">Description</string>
+    <string name="abilities">Abilities</string>
+    <string name="damage_range">Damage Ranges</string>
+    <string name="skins">Skins</string>
 
-    <string name="text_head">Kafa</string>
-    <string name="text_body">Vücüt</string>
-    <string name="text_leg">Bacak</string>
+    <string name="text_head">Head</string>
+    <string name="text_body">Body</string>
+    <string name="text_leg">Leg</string>
 
-    <string name="exit_app">Uygumaladan çıkmak istediğinize emin misiniz?</string>
-    <string name="search">Ara</string>
-    <string name="close">Kapat</string>
+    <string name="exit_app">Are you sure you want to get out of the application?</string>
+    <string name="search">Search</string>
+    <string name="close">Close</string>
+
+    <string name="map">Maps</string>
+    <string name="agent">Agents</string>
+    <string name="weapon">Weapons</string>
+
+
 </resources>
