@@ -1,18 +1,23 @@
 package com.morpion.valorant.presentation.nav
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.animation.*
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.morpion.valorant.R
 import com.morpion.valorant.presentation.theme.LightBlack
 import com.morpion.valorant.presentation.theme.LightRed
 import com.morpion.valorant.presentation.theme.White
@@ -22,17 +27,26 @@ fun BottomNavBar(
     navController: NavController,
     bottomBarState: MutableState<Boolean>
 ) {
-
     val items = listOf(
-        BottomNavItem.Agents,
-        BottomNavItem.Maps,
-        BottomNavItem.Weapons,
+        BottomNavItem(
+            title = LocalContext.current.getString(R.string.agent),
+            image = R.drawable.ic_agents,
+            route = Screen.Agents.route
+        ),
+        BottomNavItem(
+            title = LocalContext.current.getString(R.string.map),
+            image = R.drawable.ic_map,
+            route = Screen.Maps.route
+        ),
+        BottomNavItem(
+            title = LocalContext.current.getString(R.string.weapon),
+            image = R.drawable.ic_weapons,
+            route = Screen.Weapons.route
+        ),
     )
 
     AnimatedVisibility(
         visible = bottomBarState.value,
-        enter = slideInVertically(initialOffsetY = { it }),
-        exit = slideOutVertically(targetOffsetY = { it }),
         content = {
             BottomNavigation {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -46,8 +60,9 @@ fun BottomNavBar(
                             BottomNavigationItem(
                                 icon = {
                                     Icon(
-                                        painter = painterResource(item.image),
-                                        contentDescription = item.title
+                                        modifier=Modifier.padding(6.dp),
+                                        painter = painterResource(id = item.image),
+                                        contentDescription = stringResource(id = item.image)
                                     )
                                 },
                                 label = { Text(text = item.title) },
@@ -65,7 +80,6 @@ fun BottomNavBar(
                                 },
                                 selectedContentColor = LightRed,
                                 unselectedContentColor = White,
-                                alwaysShowLabel = true
                             )
                         }
                     }
