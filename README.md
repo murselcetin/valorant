@@ -17,15 +17,9 @@ The Android application I developed to guide players in the Valorant game using 
 
 </br>
 
-| Agents |
-| ------- |
-|<img src="agents.gif" width="250" height="500"/>|
-
-</br>
-
-| Agent Details|
-| ------- |
-|<img src="agents_detail.gif" width="250" height="500"/>|
+| Agents | Agent Detail |
+| ------- | ------- | 
+|<img src="agents.gif" width="250" height="500"/>|<img src="agents_detail.gif" width="250" height="500"/>|
 
 </br>
 
@@ -35,12 +29,8 @@ The Android application I developed to guide players in the Valorant game using 
 
 </br>
 
-| Weapons |
-| ------- |
-|<img src="weapons.gif" width="250" height="500"/>|
+| Weapons | Weapons Detail |
+| ------- | ------- |
+|<img src="weapons.gif" width="250" height="500"/>|<img src="weapons_detail.gif" width="250" height="500"/>|
 
 </br>
-
-| Weapons Detail |
-| ----------------- |
-|<img src="weapons_detail.gif" width="250" height="500"/>|
