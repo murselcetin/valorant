@@ -1,13 +1,13 @@
 # Valorant Guide
 
-The Android application I developed to guide players in the Valorant game using the [Valorant-API Link](https://valorant-api.com/) incorporates the following technologies and libraries:
+The Android application I developed to guide players in the Valorant game using the [Valorant-API](https://valorant-api.com/) incorporates the following technologies and libraries:
 
--Jetpack Compose: Jetpack Compose has been utilized to achieve a modern and compelling user interface (UI) design. This technology facilitates the creation of advanced UI components.</br>
--MVVM - Clean Architecture: The application is developed based on the Model-View-ViewModel (MVVM) architecture and Clean Architecture principles. This approach contributes to the organization and sustainability of the code.</br>
--Flow: Kotlin Flow is employed to manage data flow and implement reactive programming principles. This ensures the effective operation of the application in asynchronous operations.</br>
--Dagger Hilt: Dagger Hilt is used for dependency injection, enabling the application to be modular and effectively manage dependencies.</br>
--Retrofit and Okhttp: The application makes use of Retrofit and Okhttp libraries for network calls. This ensures secure and efficient communication with the Valorant API.</br>
--Glide: The Glide library is employed for loading and displaying images. This enables the application to manage visual content effectively.</br>
+<b>-Jetpack Compose:</b> Jetpack Compose has been utilized to achieve a modern and compelling user interface (UI) design. This technology facilitates the creation of advanced UI components.</br>
+<b>-MVVM - Clean Architecture:</b> The application is developed based on the Model-View-ViewModel (MVVM) architecture and Clean Architecture principles. This approach contributes to the organization and sustainability of the code.</br>
+<b>-Flow:</b> Kotlin Flow is employed to manage data flow and implement reactive programming principles. This ensures the effective operation of the application in asynchronous operations.</br>
+<b>-Dagger Hilt:</b> Dagger Hilt is used for dependency injection, enabling the application to be modular and effectively manage dependencies.</br>
+<b>-Retrofit and Okhttp:</b> The application makes use of Retrofit and Okhttp libraries for network calls. This ensures secure and efficient communication with the Valorant API.</br>
+<b>-Glide:</b> The Glide library is employed for loading and displaying images. This enables the application to manage visual content effectively.</br>
 
 | Splash |
 | ------ |
