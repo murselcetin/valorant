@@ -51,7 +51,7 @@ fun SplashDesign(alpha: Float) {
             modifier = Modifier
                 .size(200.dp)
                 .alpha(alpha = alpha),
-            painter = painterResource(id = R.drawable.ic_valorant_logo),
+            painter = painterResource(id = R.drawable.ic_logo),
             contentDescription = "Logo"
         )
     }
