@@ -9,6 +9,10 @@ The Android application I developed to guide players in the Valorant game using 
 <b>-Retrofit and Okhttp:</b> The application makes use of Retrofit and Okhttp libraries for network calls. This ensures secure and efficient communication with the Valorant API.</br>
 <b>-Glide:</b> The Glide library is employed for loading and displaying images. This enables the application to manage visual content effectively.</br>
 
+## Download
+
+[<img width="100px" height="50" src="appgallery.png" />](https://appgallery.huawei.com/app/C109641975)
+
 ## Screens
 
 | Splash |
